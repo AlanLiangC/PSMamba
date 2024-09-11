@@ -254,16 +254,16 @@ class SemSegTester(TesterBase):
                         f"{frame_name}.label",
                     )
                 )
-            elif self.cfg.data.test.type == "NuScenesDataset":
-                np.array(pred + 1).astype(np.uint8).tofile(
-                    os.path.join(
-                        save_path,
-                        "submit",
-                        "lidarseg",
-                        "test",
-                        "{}_lidarseg.bin".format(data_name),
-                    )
-                )
+            # elif self.cfg.data.test.type == "NuScenesDataset":
+            #     np.array(pred + 1).astype(np.uint8).tofile(
+            #         os.path.join(
+            #             save_path,
+            #             "submit",
+            #             "lidarseg",
+            #             "test",
+            #             "{}_lidarseg.bin".format(data_name),
+            #         )
+            #     )
 
             intersection, union, target = intersection_and_union(
                 pred, segment, self.cfg.data.num_classes, self.cfg.data.ignore_index

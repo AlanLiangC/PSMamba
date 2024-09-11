@@ -9,7 +9,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from .builder import LOSSES
-
+import ipdb
 
 @LOSSES.register_module()
 class CrossEntropyLoss(nn.Module):
@@ -36,6 +36,7 @@ class CrossEntropyLoss(nn.Module):
         )
 
     def forward(self, pred, target):
+        # ipdb.set_trace()
         return self.loss(pred, target) * self.loss_weight
 
 

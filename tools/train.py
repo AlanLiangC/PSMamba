@@ -5,6 +5,9 @@ Author: Xiaoyang Wu (xiaoyang.wu.cs@gmail.com)
 Please cite our work if the code is helpful to you.
 """
 
+import sys
+sys.path.append('/data1/liangao/Projects/3D_Perception/3D_Segmentation/PSMamba')
+
 from pointcept.engines.defaults import (
     default_argument_parser,
     default_config_parser,
