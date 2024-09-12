@@ -219,6 +219,7 @@ class SemSegInferencer(InferencerBase):
                 if "origin_segment" in data_dict.keys():
                     assert "inverse" in data_dict.keys()
                     pred = pred[data_dict["inverse"]]
+                    pred_scores = pred_scores[data_dict["inverse"]]
                     segment = data_dict["origin_segment"]
                 # np.save(pred_save_path, pred)
             if (
