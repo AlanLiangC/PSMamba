@@ -213,7 +213,9 @@ class SemSegInferencer(InferencerBase):
                 if self.cfg.data.test.type == "ScanNetPPDataset":
                     pred = pred.topk(3, dim=1)[1].data.cpu().numpy()
                 else:
+                    pred_scores = pred.cpu().numpy()
                     pred = pred.max(1)[1].data.cpu().numpy()
+                    
                 if "origin_segment" in data_dict.keys():
                     assert "inverse" in data_dict.keys()
                     pred = pred[data_dict["inverse"]]
@@ -349,6 +351,7 @@ class SemSegInferencer(InferencerBase):
                     )
                 )
             logger.info("<<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<")
+        return pred, pred_scores
 
     @staticmethod
     def collate_fn(batch):
